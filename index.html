@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <title>CropAI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+            <div class="nav-logo">
+                <img src="images/logo.png">
+            </div>
+            <div class="lang-toggle">
+                <button class="lang-btn active" onclick="changeLanguage('en')">English</button>
+                <button class="lang-btn active" onclick="changeLanguage('mr')">मराठी</button>
+                <button class="lang-btn active" onclick="changeLanguage('hi')">हिंदी</button>
+            </div>
+
+        </div>
+
+    <section class="ai-detector-section" id = "crop-detector">
+        
+    <div class="container">
+
+        <!-- Left Side -->
+        <div class="detector-image">
+
+            <div class="image-card">
+
+                <span class="live-tag">
+                    <i class="fas fa-circle"></i> LIVE SCAN
+                </span>
+
+                <img src="images/leaf-img.jpeg" alt="Crop Leaf">
+
+                <div class="floating-card disease-card">
+                    <span>🦠 Disease Found</span>
+                    <h4>Early Blight</h4>
+                    <p>78% Confidence</p>
+                </div>
+
+                <div class="floating-card ai-card">
+                    <span>🤖 AI Analysis</span>
+                    <h4>97.4% Accuracy</h4>
+                </div>
+
+                <div class="floating-card healthy-card">
+                    <span>🌱 Healthy Crop</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Right Side -->
+
+        <div class="detector-content">
+
+            <span class="badge">
+                AI Powered Feature
+            </span>
+
+            <h2>
+                AI Crop Disease
+                <span>Detector</span>
+            </h2>
+
+            <p id="description">
+                Protect your crops with AI-powered disease detection.
+                Upload a crop leaf image and receive instant disease
+                identification, treatment recommendations and prevention
+                tips within seconds.
+            </p>
+
+            <div class="feature-box">
+
+                <div class="feature">
+                    <i class="fas fa-camera"></i>
+                    <span>Upload Crop Image</span>
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+
+                <div class="feature">
+                    <i class="fas fa-robot"></i>
+                    <span>AI Disease Detection</span>
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+
+                <div class="feature">
+                    <i class="fas fa-capsules"></i>
+                    <span>Smart Treatment Suggestions</span>
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+
+                <div class="feature">
+                    <i class="fas fa-seedling"></i>
+                    <span>Prevention & Care Tips</span>
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <span>Fast Results in Seconds</span>
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+
+            </div>
+
+            <!-- Button -->
+
+            <a href="detector.html" class="detector-btn">
+                🧬 Try AI Disease Detector
+                <i class="fas fa-arrow-right"></i>
+            </a>
+
+            
+        </div>
+
+    </div>
+
+</section>
+<script src="script.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Crop Disease Detector</title>
+
+<link rel="stylesheet" href="detector.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+<div class="logo">
+    <a href="index.html" class="back-btn">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+</a>
+<div class="nav-logo">
+     <img src="images/logo.png">
+</div>
+
+</div>
+
+<div class="lang-toggle">
+                <button class="lang-btn active" onclick="changeLanguage('en')">English</button>
+                <button class="lang-btn active" onclick="changeLanguage('mr')">मराठी</button>
+                <button class="lang-btn active" onclick="changeLanguage('hi')">हिंदी</button>
+</div>
+
+
+</nav>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="badge">
+
+● Powered by Vision AI
+
+</div>
+
+<h1>
+
+AI Crop Disease
+
+<span>Detector</span>
+
+</h1>
+
+<p>
+
+Upload a crop leaf image and let AI instantly detect diseases,
+provide confidence score, treatment and prevention tips.
+
+</p>
+
+</section>
+
+<!-- ================= MAIN ================= -->
+
+<section class="main">
+
+<!-- LEFT PANEL -->
+
+<div class="left-panel">
+
+<div class="title-box">
+
+<div class="icon">
+
+🧬
+
+</div>
+
+<div>
+
+<h2>Disease Detector</h2>
+
+<p>AI Powered Crop Health Analysis</p>
+
+</div>
+
+</div>
+
+<p class="info">
+
+Our Vision AI model trained on
+
+<strong>2.4M+ crop images</strong>
+
+detects diseases across
+
+<strong>200+</strong>
+
+plant varieties.
+
+</p>
+
+<!-- Upload Card -->
+
+<div class="upload-card">
+
+<div class="upload-preview">
+
+<img id="uploadedImage"
+
+src=""
+
+style="display:none;">
+
+<div id="placeholder">
+
+<i class="fa-regular fa-image"></i>
+
+<h3>Upload Crop Leaf</h3>
+
+<p>
+
+Drag & Drop Image
+
+</p>
+
+<label for="imageInput"
+
+class="uploadLabel">
+
+Choose Image
+
+</label>
+
+<input
+
+type="file"
+
+id="imageInput"
+
+accept="image/*"
+
+hidden>
+
+</div>
+
+<!-- Loading Overlay -->
+
+<div
+
+class="analysis-overlay"
+
+id="analysisOverlay">
+
+<div class="scan-line"></div>
+
+<h3>
+
+Analyzing Image...
+
+</h3>
+
+<div class="progress">
+
+<div
+
+class="progress-fill"
+
+id="progressFill">
+
+</div>
+
+</div>
+
+<p id="progressText">
+
+0%
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Buttons -->
+
+<div class="button-group">
+
+<button
+
+class="gallery"
+
+onclick="imageInput.click()">
+
+🖼 Upload from Gallery
+
+</button>
+
+<button
+
+class="camera"
+
+onclick="imageInput.click()">
+
+📷 Capture with Camera
+
+</button>
+
+</div>
+
+<button
+
+class="detect"
+
+id="detectBtn">
+
+🚀 Analyze Image
+
+</button>
+
+<button
+
+class="another"
+
+id="anotherBtn">
+
+🔄 Analyze Another Image
+
+</button>
+
+<!-- Feature Chips -->
+
+<div class="chips">
+
+<span>
+
+✔ 200+ Diseases
+
+</span>
+
+<span>
+
+✔ 97% Accuracy
+
+</span>
+
+<span>
+
+✔ Instant Result
+
+</span>
+
+<span>
+
+✔ Free To Use
+
+</span>
+
+</div>
+
+</div>
+
+<!-- RIGHT PANEL WILL COME IN PART 1B -->
+
+<div class="right-panel">
+
+<!-- ================= RIGHT PANEL ================= -->
+
+<div class="preview-card">
+
+    <div class="preview-header">
+
+        <span>🌿 Analysis Preview</span>
+
+        <span class="status">Ready</span>
+
+    </div>
+
+    <div class="leaf-preview">
+
+        <img id="previewLeaf"
+        src="images/leaf-img.jpeg"
+        alt="Leaf">
+
+        <div class="scan-circle"></div>
+
+        <div class="confidence-box">
+
+            <small>Confidence</small>
+
+            <h2 id="confidenceScore">--%</h2>
+
+            <div class="progress-small">
+
+                <div id="smallProgress"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Diagnosis -->
+
+<div class="diagnosis-card">
+
+<div class="diagnosis-top">
+
+<div>
+
+<h3>🤖 AI Diagnosis Complete</h3>
+
+<p id="analysisTime">
+
+Waiting for Analysis
+
+</p>
+
+</div>
+
+<span class="detected">
+
+Detected
+
+</span>
+
+</div>
+
+</div>
+
+<!-- Disease -->
+
+<div class="result-card disease">
+
+<h5>
+
+🦠 DISEASE IDENTIFIED
+
+</h5>
+
+<p id="diseaseName">
+
+Awaiting Image...
+
+</p>
+
+</div>
+
+<!-- Grid -->
+
+<div class="result-grid">
+
+<div class="result-card">
+
+<h5>
+
+📊 CONFIDENCE SCORE
+
+</h5>
+
+<h2 id="confidence">
+
+--%
+
+</h2>
+
+</div>
+
+<div class="result-card">
+
+<h5>
+
+⚡ SEVERITY LEVEL
+
+</h5>
+
+<h2 id="severity">
+
+--
+
+</h2>
+
+</div>
+
+</div>
+
+<!-- Medicine -->
+
+<div class="result-card">
+
+<h5>
+
+💊 RECOMMENDED MEDICINE
+
+</h5>
+
+<p id="medicine">
+
+Pending Analysis...
+
+</p>
+
+</div>
+
+<!-- Organic -->
+
+<div class="result-card">
+
+<h5>
+
+🌱 ORGANIC TREATMENT
+
+</h5>
+
+<p id="organic">
+
+Pending Analysis...
+
+</p>
+
+</div>
+
+<!-- Prevention -->
+
+<div class="result-card">
+
+<h5>
+
+🛡 PREVENTION TIPS
+
+</h5>
+
+<p id="prevention">
+
+Upload a crop image to get prevention tips.
+
+</p>
+
+</div>
+
+<!-- Buttons -->
+
+<div class="bottom-buttons">
+
+<button id="downloadBtn">
+
+📄 Download Report
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="detector.js"></script>
+
+</body>
+
+</html>
