@@ -53,10 +53,60 @@ body{
     box-shadow: 0 3px 8px rgba(22,163,74,0.25);
 
 }
-/* Responsive */
-/* @media( max-width: 600px){
-    .navbar
-} */
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        height: 65px;
+
+        padding: 0 4%;
+    }
+
+    .nav-logo {
+        font-size: 21px;
+    }
+
+    .logo-icon {
+        width: 36px;
+        height: 36px;
+
+        font-size: 20px;
+    }
+
+    .language-toggle {
+        padding: 3px;
+    }
+
+    .lang-btn {
+        padding: 7px 9px;
+
+        font-size: 11px;
+    }
+}
+
+
+@media (max-width: 400px) {
+
+    .nav-logo {
+        font-size: 18px;
+    }
+
+    .logo-icon {
+        width: 32px;
+        height: 32px;
+
+        font-size: 17px;
+    }
+
+    .lang-btn {
+        padding: 6px 7px;
+
+        font-size: 10px;
+    }
+}
 .ai-detector-section{
     padding:100px 8%;
     background:linear-gradient(180deg,#f8fff7,#eefcf1);

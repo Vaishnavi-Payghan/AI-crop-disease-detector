@@ -107,6 +107,60 @@ background:#1d8d42;
 color:#fff;
 
 }
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        height: 65px;
+
+        padding: 0 4%;
+    }
+
+    .nav-logo {
+        font-size: 21px;
+    }
+
+    .logo-icon {
+        width: 36px;
+        height: 36px;
+
+        font-size: 20px;
+    }
+
+    .language-toggle {
+        padding: 3px;
+    }
+
+    .lang-btn {
+        padding: 7px 9px;
+
+        font-size: 11px;
+    }
+}
+
+
+@media (max-width: 400px) {
+
+    .nav-logo {
+        font-size: 18px;
+    }
+
+    .logo-icon {
+        width: 32px;
+        height: 32px;
+
+        font-size: 17px;
+    }
+
+    .lang-btn {
+        padding: 6px 7px;
+
+        font-size: 10px;
+    }
+}
 
 /* ==========================
  HERO
