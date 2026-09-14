@@ -50,9 +50,9 @@ const translations = {
         ready: "Ready",
         confidence: "Confidence",
 
-        diagnosis: "🤖 AI Diagnosis Complete",
-        waiting: "Waiting for Analysis",
-        detected: "Detected",
+        cropIdentified: "CROP IDENTIFIED",
+        analysisTime: "ANALYSIS TIME",
+        cropWaiting: "_ _ _",
 
         diseaseIdentified: "🦠 DISEASE IDENTIFIED",
         awaiting: "Awaiting Image...",
@@ -116,9 +116,9 @@ const translations = {
         ready: "तयार",
         confidence: "विश्वास पातळी",
 
-        diagnosis: "🤖 AI रोग निदान पूर्ण",
-        waiting: "विश्लेषणाची प्रतीक्षा आहे",
-        detected: "रोग आढळला",
+        cropIdentified: "ओळखलेले पीक",
+        analysisTime: "विश्लेषणाची वेळ",
+        cropWaiting: "_ _ _",
 
         diseaseIdentified: "🦠 रोग ओळखला गेला",
         awaiting: "फोटोची प्रतीक्षा आहे...",
@@ -182,9 +182,9 @@ const translations = {
         ready: "तैयार",
         confidence: "विश्वास स्तर",
 
-        diagnosis: "🤖 AI रोग निदान पूरा",
-        waiting: "विश्लेषण की प्रतीक्षा है",
-        detected: "रोग पाया गया",
+        cropIdentified: "पहचानी गई फसल",
+        analysisTime: "विश्लेषण का समय",
+        cropWaiting: "_ _ _",
 
         diseaseIdentified: "🦠 रोग की पहचान हुई",
         awaiting: "तस्वीर की प्रतीक्षा है...",
@@ -471,39 +471,22 @@ function changeLanguage(lang) {
 
 
     // =================================================
-    // DIAGNOSIS
-    // =================================================
+// CROP IDENTIFIED + ANALYSIS TIME
+// =================================================
 
-    const diagnosis =
-        document.querySelector(
-            ".diagnosis-card h3"
-        );
+    const cropIdentified =
+        document.getElementById("cropIdentified");
 
-    if (diagnosis) {
-        diagnosis.textContent =
-            t.diagnosis;
+    if (cropIdentified) {
+        cropIdentified.textContent =
+            t.cropWaiting;
     }
-
 
     const analysisTime =
-        document.getElementById(
-            "analysisTime"
-        );
+        document.getElementById("analysisTime");
 
     if (analysisTime) {
-        analysisTime.textContent =
-            t.waiting;
-    }
-
-
-    const detected =
-        document.querySelector(
-            ".diagnosis-card .detected"
-        );
-
-    if (detected) {
-        detected.textContent =
-            t.detected;
+        analysisTime.textContent = "--";
     }
 
 
@@ -955,6 +938,21 @@ async function showResults() {
                         "AI Result:",
                         data
                     );
+                    // =================================
+                    // CROP IDENTIFICATION
+                    // =================================
+
+                    const cropIdentified =
+                        document.getElementById(
+                            "cropIdentified"
+                        );
+
+                    if (cropIdentified) {
+
+                        cropIdentified.textContent =
+                            data.cropName ||
+                            "Unknown";
+                    }
 
 
                     // =================================
@@ -1089,9 +1087,23 @@ async function showResults() {
 
                     if (analysisTime) {
 
+                        const now = new Date();
+
                         analysisTime.textContent =
-                            new Date()
-                                .toLocaleTimeString();
+                            now.toLocaleString(
+                                currentLanguage === "mr"
+                                    ? "mr-IN"
+                                    : currentLanguage === "hi"
+                                    ? "hi-IN"
+                                    : "en-IN",
+                                {
+                                    hour: "2-digit",
+                                    minute: "2-digit",
+                                    day: "2-digit",
+                                    month: "short",
+                                    year: "numeric"
+                                }
+                            );
                     }
 
 
@@ -1246,11 +1258,15 @@ if (anotherBtn) {
 
 
             document.getElementById(
-                "diseaseName"
+                "analysisTime"
+            ).textContent = "--";
+
+            document.getElementById(
+                "cropIdentified"
             ).textContent =
                 translations[
                     currentLanguage
-                ].awaiting;
+                ].cropWaiting;
 
 
             document.getElementById(
