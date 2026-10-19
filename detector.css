@@ -114,13 +114,16 @@ color:#fff;
 @media (max-width: 600px) {
 
     .navbar {
-        height: 65px;
+        height: 70px;
 
         padding: 0 4%;
     }
 
-    .nav-logo {
-        font-size: 21px;
+    .nav-logo img{
+        height: 60px;
+    }
+    .back-btn{
+        margin-right: 10px;
     }
 
     .logo-icon {
@@ -390,7 +393,7 @@ margin-bottom:20px;
 
 #placeholder h3{
 
-font-size:28px;
+font-size:23px;
 
 margin-bottom:8px;
 
@@ -663,37 +666,122 @@ background:#2fb75c;
 transition:.4s;
 }
 
-/* Diagnosis Card */
+/* =========================
+   CROP + ANALYSIS TIME
+========================= */
 
-.diagnosis-card{
-background:#fff;
-padding:22px;
-border-radius:20px;
-box-shadow:0 12px 30px rgba(0,0,0,.05);
+.crop-time-container {
+    width: 100%;
+    display: flex;
+    gap: 16px;
+    margin: 20px 0;
+    align-items: stretch;
 }
 
-.diagnosis-top{
-display:flex;
-justify-content:space-between;
-align-items:center;
+/* Main Crop Card */
+.crop-name-card {
+    flex: 1;
+    min-height: 105px;
+    padding: 20px 24px;
+    background: #ffffff;
+    border: 1px solid #e4eee8;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.05);
 }
 
-.diagnosis-top h3{
-font-size:22px;
-margin-bottom:8px;
+/* Crop Icon */
+.crop-icon {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: #e5f6ed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
 }
 
-.diagnosis-top p{
-font-size:14px;
-color:#777;
+/* Text */
+.info-label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #72827a;
 }
 
-.detected{
-padding:8px 18px;
-background:#dff8e7;
-color:#1c8d43;
-border-radius:20px;
-font-weight:600;
+.crop-info h3 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #18352a;
+}
+
+/* Time Card */
+.analysis-time-card {
+    width: 270px;
+    min-height: 105px;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #e4eee8;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.04);
+}
+
+/* Time Icon */
+.time-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 14px;
+    background: #eaf7f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.time-info p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 600;
+    color: #20382d;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+
+    .crop-time-container {
+        flex-direction: column;
+    }
+
+    .crop-name-card {
+        min-height: 90px;
+        padding: 17px;
+    }
+
+    .analysis-time-card {
+        width: auto;
+        min-height: 80px;
+        padding: 17px;
+    }
+
+    .crop-info h3 {
+        font-size: 20px;
+    }
 }
 
 /* Result Grid */
@@ -1008,12 +1096,6 @@ font-size:42px;
 }
 
 @media(max-width:768px){
-
-.navbar{
-
-padding:15px 20px;
-
-}
 
 .logo{
 

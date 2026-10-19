@@ -17,11 +17,11 @@ const translations = {
 
     en: {
         heroBadge: "● Powered by Vision AI",
-        heroTitle: "AI Crop Disease",
+        heroTitle: "AI Plant Identification & Disease",
         heroDetector: "Detector",
 
         heroDescription:
-            "Upload a crop leaf image and let AI instantly detect diseases, provide confidence score, treatment and prevention tips.",
+            "Upload a plant or crop leaf image and let AI instantly identify the plant, detect diseases, provide a confidence score, and offer treatment and prevention tips.",
 
         diseaseDetector: "Disease Detector",
         healthAnalysis: "AI Powered Crop Health Analysis",
@@ -50,9 +50,9 @@ const translations = {
         ready: "Ready",
         confidence: "Confidence",
 
-        diagnosis: "🤖 AI Diagnosis Complete",
-        waiting: "Waiting for Analysis",
-        detected: "Detected",
+        cropIdentified: "CROP IDENTIFIED",
+        analysisTime: "ANALYSIS TIME",
+        cropWaiting: "_ _ _",
 
         diseaseIdentified: "🦠 DISEASE IDENTIFIED",
         awaiting: "Awaiting Image...",
@@ -83,11 +83,11 @@ const translations = {
 
     mr: {
         heroBadge: "● Vision AI द्वारे समर्थित",
-        heroTitle: "AI पीक रोग",
-        heroDetector: "शोधक",
+        heroTitle: "AI द्वारे वनस्पती ओळख आणि ",
+        heroDetector: "रोग निदान",
 
         heroDescription:
-            "पिकाच्या पानाचा फोटो अपलोड करा आणि AI च्या मदतीने काही सेकंदांत रोग ओळखा, विश्वास पातळी, उपचार आणि प्रतिबंधात्मक उपाय मिळवा.",
+            "वनस्पती किंवा पिकाच्या पानाचा फोटो अपलोड करा आणि AI च्या मदतीने काही क्षणांत वनस्पतीची ओळख करा, रोग शोधा, खात्रीची टक्केवारी मिळवा आणि उपचार व रोग प्रतिबंधक उपाय जाणून घ्या.",
 
         diseaseDetector: "रोग शोधक",
         healthAnalysis: "AI आधारित पीक आरोग्य विश्लेषण",
@@ -116,9 +116,9 @@ const translations = {
         ready: "तयार",
         confidence: "विश्वास पातळी",
 
-        diagnosis: "🤖 AI रोग निदान पूर्ण",
-        waiting: "विश्लेषणाची प्रतीक्षा आहे",
-        detected: "रोग आढळला",
+        cropIdentified: "ओळखलेले पीक",
+        analysisTime: "विश्लेषणाची वेळ",
+        cropWaiting: "_ _ _",
 
         diseaseIdentified: "🦠 रोग ओळखला गेला",
         awaiting: "फोटोची प्रतीक्षा आहे...",
@@ -149,11 +149,11 @@ const translations = {
 
     hi: {
         heroBadge: "● Vision AI द्वारा संचालित",
-        heroTitle: "AI फसल रोग",
-        heroDetector: "पहचानकर्ता",
+        heroTitle: "AI द्वारा पौधों की पहचान और ",
+        heroDetector: "रोग का निदान",
 
         heroDescription:
-            "फसल के पत्ते की तस्वीर अपलोड करें और AI की मदद से कुछ ही सेकंड में रोग की पहचान करें, विश्वास स्तर, उपचार और बचाव के सुझाव प्राप्त करें।",
+            "पौधे या फसल के पत्ते की तस्वीर अपलोड करें और AI की मदद से कुछ ही सेकंड में पौधे की पहचान करें, रोगों का पता लगाएं, विश्वास स्तर प्राप्त करें और उपचार व रोगों से बचाव के उपाय जानें।",
 
         diseaseDetector: "रोग पहचानकर्ता",
         healthAnalysis: "AI आधारित फसल स्वास्थ्य विश्लेषण",
@@ -182,9 +182,9 @@ const translations = {
         ready: "तैयार",
         confidence: "विश्वास स्तर",
 
-        diagnosis: "🤖 AI रोग निदान पूरा",
-        waiting: "विश्लेषण की प्रतीक्षा है",
-        detected: "रोग पाया गया",
+        cropIdentified: "पहचानी गई फसल",
+        analysisTime: "विश्लेषण का समय",
+        cropWaiting: "_ _ _",
 
         diseaseIdentified: "🦠 रोग की पहचान हुई",
         awaiting: "तस्वीर की प्रतीक्षा है...",
@@ -471,39 +471,22 @@ function changeLanguage(lang) {
 
 
     // =================================================
-    // DIAGNOSIS
-    // =================================================
+// CROP IDENTIFIED + ANALYSIS TIME
+// =================================================
 
-    const diagnosis =
-        document.querySelector(
-            ".diagnosis-card h3"
-        );
+    const cropIdentified =
+        document.getElementById("cropIdentified");
 
-    if (diagnosis) {
-        diagnosis.textContent =
-            t.diagnosis;
+    if (cropIdentified) {
+        cropIdentified.textContent =
+            t.cropWaiting;
     }
-
 
     const analysisTime =
-        document.getElementById(
-            "analysisTime"
-        );
+        document.getElementById("analysisTime");
 
     if (analysisTime) {
-        analysisTime.textContent =
-            t.waiting;
-    }
-
-
-    const detected =
-        document.querySelector(
-            ".diagnosis-card .detected"
-        );
-
-    if (detected) {
-        detected.textContent =
-            t.detected;
+        analysisTime.textContent = "--";
     }
 
 
@@ -955,6 +938,21 @@ async function showResults() {
                         "AI Result:",
                         data
                     );
+                    // =================================
+                    // CROP IDENTIFICATION
+                    // =================================
+
+                    const cropIdentified =
+                        document.getElementById(
+                            "cropIdentified"
+                        );
+
+                    if (cropIdentified) {
+
+                        cropIdentified.textContent =
+                            data.cropName ||
+                            "Unknown";
+                    }
 
 
                     // =================================
@@ -1089,9 +1087,23 @@ async function showResults() {
 
                     if (analysisTime) {
 
+                        const now = new Date();
+
                         analysisTime.textContent =
-                            new Date()
-                                .toLocaleTimeString();
+                            now.toLocaleString(
+                                currentLanguage === "mr"
+                                    ? "mr-IN"
+                                    : currentLanguage === "hi"
+                                    ? "hi-IN"
+                                    : "en-IN",
+                                {
+                                    hour: "2-digit",
+                                    minute: "2-digit",
+                                    day: "2-digit",
+                                    month: "short",
+                                    year: "numeric"
+                                }
+                            );
                     }
 
 
@@ -1246,11 +1258,15 @@ if (anotherBtn) {
 
 
             document.getElementById(
-                "diseaseName"
+                "analysisTime"
+            ).textContent = "--";
+
+            document.getElementById(
+                "cropIdentified"
             ).textContent =
                 translations[
                     currentLanguage
-                ].awaiting;
+                ].cropWaiting;
 
 
             document.getElementById(
