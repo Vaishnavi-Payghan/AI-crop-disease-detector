@@ -17,11 +17,11 @@ const translations = {
 
     en: {
         heroBadge: "● Powered by Vision AI",
-        heroTitle: "AI Crop Disease",
+        heroTitle: "AI Plant Identification & Disease",
         heroDetector: "Detector",
 
         heroDescription:
-            "Upload a crop leaf image and let AI instantly detect diseases, provide confidence score, treatment and prevention tips.",
+            "Upload a plant or crop leaf image and let AI instantly identify the plant, detect diseases, provide a confidence score, and offer treatment and prevention tips.",
 
         diseaseDetector: "Disease Detector",
         healthAnalysis: "AI Powered Crop Health Analysis",
@@ -83,11 +83,11 @@ const translations = {
 
     mr: {
         heroBadge: "● Vision AI द्वारे समर्थित",
-        heroTitle: "AI पीक रोग",
-        heroDetector: "शोधक",
+        heroTitle: "AI द्वारे वनस्पती ओळख आणि ",
+        heroDetector: "रोग निदान",
 
         heroDescription:
-            "पिकाच्या पानाचा फोटो अपलोड करा आणि AI च्या मदतीने काही सेकंदांत रोग ओळखा, विश्वास पातळी, उपचार आणि प्रतिबंधात्मक उपाय मिळवा.",
+            "वनस्पती किंवा पिकाच्या पानाचा फोटो अपलोड करा आणि AI च्या मदतीने काही क्षणांत वनस्पतीची ओळख करा, रोग शोधा, खात्रीची टक्केवारी मिळवा आणि उपचार व रोग प्रतिबंधक उपाय जाणून घ्या.",
 
         diseaseDetector: "रोग शोधक",
         healthAnalysis: "AI आधारित पीक आरोग्य विश्लेषण",
@@ -149,11 +149,11 @@ const translations = {
 
     hi: {
         heroBadge: "● Vision AI द्वारा संचालित",
-        heroTitle: "AI फसल रोग",
-        heroDetector: "पहचानकर्ता",
+        heroTitle: "AI द्वारा पौधों की पहचान और ",
+        heroDetector: "रोग का निदान",
 
         heroDescription:
-            "फसल के पत्ते की तस्वीर अपलोड करें और AI की मदद से कुछ ही सेकंड में रोग की पहचान करें, विश्वास स्तर, उपचार और बचाव के सुझाव प्राप्त करें।",
+            "पौधे या फसल के पत्ते की तस्वीर अपलोड करें और AI की मदद से कुछ ही सेकंड में पौधे की पहचान करें, रोगों का पता लगाएं, विश्वास स्तर प्राप्त करें और उपचार व रोगों से बचाव के उपाय जानें।",
 
         diseaseDetector: "रोग पहचानकर्ता",
         healthAnalysis: "AI आधारित फसल स्वास्थ्य विश्लेषण",

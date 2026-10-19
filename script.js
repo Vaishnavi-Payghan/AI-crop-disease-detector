@@ -7,11 +7,11 @@ const translations = {
 
     en: {
         badge: "AI Powered Feature",
-        title: "AI Crop Disease",
+        title: "AI Plant Identification & Disease ",
         detector: "Detector",
 
         description:
-            "Protect your crops with AI-powered disease detection. Upload a crop leaf image and receive instant disease identification, treatment recommendations and prevention tips within seconds.",
+            "Identify your plants and detect diseases with AI. Upload a crop leaf image to get instant plant identification, disease detection, treatment recommendations, and prevention tips within seconds.",
 
         live: "LIVE SCAN",
 
@@ -24,7 +24,7 @@ const translations = {
 
         healthy: "🌱 Healthy Crop",
 
-        upload: "Upload Crop Image",
+        upload: "Upload Leaf Image",
         detection: "AI Disease Detection",
         treatment: "Smart Treatment Suggestions",
         prevention: "Prevention & Care Tips",
@@ -36,11 +36,12 @@ const translations = {
 
     mr: {
         badge: "AI आधारित सुविधा",
-        title: "AI पीक रोग",
-        detector: "शोधक",
+        title: "AI द्वारे वनस्पती ओळख आणि",
+        detector: "रोग निदान",
+        
 
         description:
-            "AI च्या मदतीने पिकांमधील रोग ओळखून आपल्या पिकांचे संरक्षण करा. पिकाच्या पानाचा फोटो अपलोड करा आणि काही सेकंदांत रोगाची ओळख, उपचारांच्या सूचना आणि प्रतिबंधात्मक उपाय मिळवा.",
+            "AI च्या मदतीने तुमच्या पिकाची ओळख करा आणि रोग शोधा. पिकाच्या पानाचा फोटो अपलोड करा आणि काही सेकंदांत पिकाची ओळख, रोगाचे निदान, उपचारांच्या शिफारसी आणि रोग प्रतिबंधक उपाय मिळवा.",
 
         live: "थेट स्कॅन",
 
@@ -53,7 +54,7 @@ const translations = {
 
         healthy: "🌱 निरोगी पीक",
 
-        upload: "पिकाचा फोटो अपलोड करा",
+        upload: "पानाचा फोटो अपलोड करा",
         detection: "AI रोग शोध",
         treatment: "स्मार्ट उपचार सूचना",
         prevention: "प्रतिबंध आणि काळजीच्या सूचना",
@@ -65,11 +66,12 @@ const translations = {
 
     hi: {
         badge: "AI आधारित सुविधा",
-        title: "AI फसल रोग",
-        detector: "पहचानकर्ता",
+        title: "AI द्वारा पौधों की पहचान और",
+        detector: "रोग का निदान",
 
         description:
-            "AI की मदद से अपनी फसलों को रोगों से बचाएं। फसल के पत्ते की तस्वीर अपलोड करें और कुछ ही सेकंड में रोग की पहचान, उपचार सुझाव और बचाव की जानकारी प्राप्त करें।",
+            "AI की मदद से अपनी फसल की पहचान करें और रोगों का पता लगाएं। फसल के पत्ते की तस्वीर अपलोड करें और कुछ ही सेकंड में फसल की पहचान, रोग का निदान, उपचार की सलाह और रोगों से बचाव के उपाय प्राप्त करें। ",
+
 
         live: "लाइव स्कैन",
 
@@ -82,7 +84,7 @@ const translations = {
 
         healthy: "🌱 स्वस्थ फसल",
 
-        upload: "फसल की तस्वीर अपलोड करें",
+        upload: "पत्ते की तस्वीर अपलोड करें",
         detection: "AI रोग पहचान",
         treatment: "स्मार्ट उपचार सुझाव",
         prevention: "बचाव और देखभाल के सुझाव",
